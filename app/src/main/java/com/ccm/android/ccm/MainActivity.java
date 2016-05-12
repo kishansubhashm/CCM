@@ -175,6 +175,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void gotoSignin() {
+        SessionHandler.logoutUser();
         Intent mIntent = new Intent(MainActivity.this, ActivityLogin.class);
         startActivity(mIntent);
         finish();
