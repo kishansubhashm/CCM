@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="52dp">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:padding="16dp">
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical">-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create New Lead"
+            android:textSize="28dp"
+            android:textColor="@color/colorAccent"/>
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="0.25dp"
+            android:layout_marginBottom="4dp"
+            android:background="#BDBDBD"
+            android:layout_above="@+id/relativeLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            />
+        <android.support.design.widget.TextInputLayout
+            android:layout_toRightOf="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:id="@+id/customer_name_ti"
+            >
+            <EditText
+                style="@style/Signup_Style"
+                android:inputType="text"
+                android:id="@+id/customer_name"
+                android:hint="Customer Name"
+                android:padding="8dp"
+                android:layout_marginLeft="2dp" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_toRightOf="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:id="@+id/customer_address_ti"
+            >
+            <EditText
+                style="@style/Signup_Style"
+                android:inputType="text"
+                android:id="@+id/customer_address"
+                android:hint="Customer Address"
+                android:padding="8dp"
+                android:layout_marginLeft="2dp" />
+        </android.support.design.widget.TextInputLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Occupation"
+                android:textSize="20dp"
+                android:paddingTop="12dp"
+                android:textColor="#333" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:paddingBottom="4dp"
+            android:orientation="horizontal">
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioOccupationGroup"
+                android:orientation='horizontal'
+                >
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Self Employed"
+                    android:id="@+id/setting_self_employee"
+                    android:checked="true" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Employee"
+                    android:id="@+id/setting_employee_edit"
+                    android:checked="false" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Professional"
+                    android:id="@+id/setting_profesional_edit"
+                    android:checked="false" />
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:orientation="vertical">
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioInnerGroup"
+                android:orientation='vertical'
+                >
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Proprietary company"
+                    android:id="@+id/one"
+                    android:checked="true" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Partnership company"
+                    android:id="@+id/two"
+                    android:checked="false" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Private Limited company"
+                    android:id="@+id/three"
+                    android:checked="false" />
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Annual Income"
+                android:textSize="20dp"
+                android:paddingTop="12dp"
+                android:textColor="#333" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:paddingBottom="4dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="18dp">
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioIncomeGroup"
+                android:orientation='vertical'>
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="&lt; 5 lakh per annum"
+                            android:id="@+id/fivel_lac_per_annum"
+                            android:checked="false" />
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5-10 lakh per annum"
+                            android:id="@+id/five_to_ten_lac"
+                            android:checked="false" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10-25 lakh per annum"
+                            android:id="@+id/ten_to_twenty_five_lac"
+                            android:checked="false" />
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="25-50 lakh per annum"
+                            android:id="@+id/twenty_five_to_fifty_lac"
+                            android:checked="false" />
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="> 50 lakh per annum"
+                            android:id="@+id/fifty_and_above_lac"
+                            android:checked="false" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_toRightOf="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:id="@+id/pan_num_ti"
+            >
+            <EditText
+                style="@style/Signup_Style"
+                android:inputType="text"
+                android:id="@+id/pan_num"
+                android:hint="PAN Card Number"
+                android:padding="8dp"
+                android:layout_marginLeft="2dp" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_toRightOf="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:id="@+id/aadhar_num_ti"
+            >
+            <EditText
+                style="@style/Signup_Style"
+                android:inputType="text"
+                android:id="@+id/aadhar_num"
+                android:padding="8dp"
+                android:hint="Aadhaar  Card Number"
+                android:layout_marginLeft="2dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_toRightOf="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:id="@+id/address_ti"
+            >
+            <EditText
+                style="@style/Signup_Style"
+                android:inputType="text"
+                android:id="@+id/address"
+                android:padding="8dp"
+                android:lines="5"
+                android:hint="Office / Business Address"
+                android:layout_marginLeft="2dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/new_lead_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center"
+            android:background="@drawable/button"
+            style="@style/buttonStyle"
+            android:text="Create"
+            android:textSize="16dp"
+            android:clickable="true"
+            android:letterSpacing="0.05"
+            android:layout_marginTop="8dp" />
+        <!--</LinearLayout>-->
+    </LinearLayout>
+</ScrollView>

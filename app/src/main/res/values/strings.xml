@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CCM</string>
+
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="selected_item">Selected item</string>
+    <string name="serialization_KEY">ccm</string>
+</resources>
