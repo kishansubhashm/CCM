@@ -35,20 +35,20 @@ public class MyLeads extends Fragment {
 
         Integer[] imageId = {
                 R.drawable.online_final,
-                R.drawable.temperory_final,
+                R.drawable.pending_info,
                 R.drawable.online_final,
-                R.drawable.offline_final,
+                R.drawable.delete,
                 R.drawable.online_final,
-                R.drawable.offline_final,
-                R.drawable.temperory_final,
+                R.drawable.delete,
+                R.drawable.pending_info,
                 R.drawable.online_final,
                 R.drawable.online_final,
-                R.drawable.temperory_final,
+                R.drawable.pending_info,
                 R.drawable.online_final,
-                R.drawable.offline_final,
-                R.drawable.temperory_final,
+                R.drawable.delete,
+                R.drawable.pending_info,
                 R.drawable.online_final,
-                R.drawable.temperory_final,
+                R.drawable.delete,
                 R.drawable.online_final
 
         };
