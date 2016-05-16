@@ -10,6 +10,8 @@ import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import org.honorato.multistatetogglebutton.MultiStateToggleButton;
+
 /**
  * Created by KishanSubhashMiryala on 5/11/2016.
  */
@@ -31,6 +33,8 @@ public class NewLead extends Fragment {
         final RadioButton one = (RadioButton) rootView.findViewById(R.id.one);
         final RadioButton two = (RadioButton) rootView.findViewById(R.id.two);
         final RadioButton three = (RadioButton) rootView.findViewById(R.id.three);
+        final MultiStateToggleButton button = (MultiStateToggleButton) rootView.findViewById(R.id.mstb_multi_id);
+        button.setElements(R.array.income_array,2);
 
         radioOccupationGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
         {

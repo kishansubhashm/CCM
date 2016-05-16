@@ -26,13 +26,8 @@ public class ActivitySignup extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
         final Context mContext=this;
         final Activity mActivity=(Activity)this;
-        final EditText firstname= (EditText) findViewById(R.id.firstname);
-        final EditText lastname= (EditText) findViewById(R.id.lastname);
-        final EditText username= (EditText) findViewById(R.id.username);
         final EditText mobile= (EditText) findViewById(R.id.mobile);
-        final EditText secret= (EditText) findViewById(R.id.secret);
         final TextView login_here= (TextView) findViewById(R.id.login_here);
-        final EditText re_secret= (EditText) findViewById(R.id.re_secret);
         final Button signup_btn= (Button) findViewById(R.id.signup_btn);
 
         login_here.setOnClickListener(new View.OnClickListener() {
@@ -44,31 +39,22 @@ public class ActivitySignup extends AppCompatActivity {
         signup_btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if(secret.getText().toString().trim().length()!=0&&re_secret.getText().toString().trim().length()!=0){
-                    if(secret.getText().toString().trim().equals(re_secret.getText().toString().trim())){
                         SessionHandler session= new SessionHandler(mContext,mActivity);
-                        session.createLoginSession(username.getText().toString().trim());
-                        gotoHome(firstname.getText().toString().trim(),
-                                lastname.getText().toString().trim(),
-                                username.getText().toString().trim(),
+                        session.createLoginSession(mobile.getText().toString().trim());
+                        gotoHome(mobile.getText().toString().trim(),
+
+                                mobile.getText().toString().trim(),
                                 mobile.getText().toString().trim(),
                                 mobile.getText().toString().trim()
                         );
-                        Toast.makeText(ActivitySignup.this, "successfully Logged in as "+username.getText().toString().trim(), Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(mContext,"Entered passwords are not same\nPlease Re-enter Passwords and try again",Toast.LENGTH_LONG).show();
-                    }
-                }
-                else{
-                    Toast.makeText(mContext,"Please fill all fields and try again",Toast.LENGTH_LONG).show();
-                }
+                        Toast.makeText(ActivitySignup.this, "successfully Logged in as ", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void gotoHome(String fname, String lname, String uname, String mobile, String pass){
+    private void gotoHome(String fname, String uname, String mobile, String pass){
         try {
-            Splash.userBundle.add(new User(fname, lname,uname,mobile,pass));
+            Splash.userBundle.add(new User(fname, "",uname,mobile,pass));
             Cache.writeObject(getApplicationContext(), getResources().getString(R.string.serialization_KEY), Splash.userBundle);
         } catch (IOException e) {
             Log.d("Cache", " read/write");

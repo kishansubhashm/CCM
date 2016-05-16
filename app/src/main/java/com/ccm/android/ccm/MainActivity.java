@@ -58,11 +58,11 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("CCM");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_white_menu_24dp);
-        getSupportActionBar().show();
+//        getSupportActionBar().setDisplayShowTitleEnabled(true);
+//        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_white_menu_24dp);
+//        getSupportActionBar().show();
         ssn = new SessionHandler(mContext, mActivity);
 
 //        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new NewLead(), "New Lead");
-        adapter.addFragment(new MyLeads(), "My Leads");
+        adapter.addFragment(new MyNewLeads(), "My Leads");
 
         viewPager.setAdapter(adapter);
     }
@@ -210,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-//    @Override
+    //    @Override
 //    public boolean onOptionsItemSelected(MenuItem item) {
 //        // Handle actionbar item clicks here. The action bar will
 //        int id = item.getItemId();
@@ -226,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
 //        }
 //        return super.onOptionsItemSelected(item);
 //    }
-@Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;

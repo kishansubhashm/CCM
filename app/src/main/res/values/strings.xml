@@ -5,4 +5,18 @@
     <string name="drawer_close">Close</string>
     <string name="selected_item">Selected item</string>
     <string name="serialization_KEY">ccm</string>
+
+    <string-array name="status_array">
+        <item>Approve</item>
+        <item>Reject</item>
+
+    </string-array>
+<string-array name="income_array">
+        <item>0-5</item>
+        <item>5-10</item>
+        <item>10-25</item>
+        <item>10-25</item>
+        <item>25-50</item>
+        <item>>50</item>
+    </string-array>
 </resources>

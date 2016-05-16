@@ -4,4 +4,13 @@
     <color name="colorPrimaryDark">#1565C0</color>
     <color name="colorAccent">#1E88E5</color>
     <color name="cards_peripherals_color">#BDBDBD</color>
+
+    <color name="red">#E53935</color>
+    <color name="green">#7CB342</color>
+    <color name="orange">#FB8C00</color>
+
+    <color name="almost_white">#EEEEEE</color>
+
+    <color name="list_lbl">#BDBDBD</color>
+    <color name="list_val">#757575</color>
 </resources>

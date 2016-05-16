@@ -10,17 +10,10 @@
         android:id="@+id/splash_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/splash"
+        android:src="@drawable/splash_ccm"
         android:scaleType="centerCrop"
         />
 
-        <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ccm_logo"
-        android:scaleType="centerCrop"
-            android:layout_gravity="center_horizontal|top"
-            android:layout_marginTop="32dp" />
     </FrameLayout>
 
 </RelativeLayout>

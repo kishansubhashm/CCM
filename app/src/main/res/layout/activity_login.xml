@@ -10,84 +10,89 @@
         android:id="@+id/splash_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/splash"
+        android:src="@drawable/login_signup_bg"
         android:scaleType="centerCrop"
         />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ccm_logo"
-        android:scaleType="centerCrop"
-        android:layout_gravity="center_horizontal|top"
-        android:layout_marginTop="32dp" />
+    <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/ccm_logo"-->
+        <!--android:scaleType="centerCrop"-->
+        <!--android:layout_gravity="center_horizontal|top"-->
+        <!--android:layout_marginTop="32dp" />-->
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#66333333"
+        android:background="#77333333"
 
         android:gravity="center_vertical|center_horizontal"
         xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Log in to your Account"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:layout_marginBottom="48dp" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:background="#88333333"
 
-            android:layout_margin="20dp">
+            android:layout_margin="16dp">
             />
-            <android.support.design.widget.TextInputLayout
-                android:layout_toRightOf="@+id/spinner"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User Name"
+                android:textColor="@android:color/white"/>
+            <EditText
+                style="@style/Signup_Style"
+                android:inputType="text"
+                android:id="@+id/login_name"
+                android:background="@android:color/white"
+                android:textColor="@android:color/black"
+                android:padding="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="24dp" />
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:textColorHint="#F5F5F5"
-                android:layout_marginTop="8dp"
-                android:id="@+id/login_name_ti"
-                >
-                <EditText
-                    style="@style/Signup_Style"
-                    android:inputType="text"
-                    android:id="@+id/login_name"
-                    android:textColor="@android:color/white"
-                    android:hint="User Name"
-                    android:padding="8dp"
-                    android:layout_marginLeft="2dp" />
-            </android.support.design.widget.TextInputLayout>
-            <android.support.design.widget.TextInputLayout
-                android:layout_toRightOf="@+id/spinner"
-                android:layout_width="match_parent"
+                android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
-                android:textColorHint="#F5F5F5"
+                android:layout_weight="1"
+                android:text="Password"
+                android:textColor="@android:color/white"/>
 
-                android:id="@+id/login_secret_ti"
-                >
-                <EditText
-                    style="@style/Signup_Style"
-                    android:inputType="textPassword"
-                    android:id="@+id/login_secret"
-                    android:hint="password"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:text="Forgot?"
                     android:textColor="@android:color/white"
-                    android:textColorHint="#F5F5F5"
-                    android:padding="8dp"
-                    android:layout_marginLeft="2dp" />
-            </android.support.design.widget.TextInputLayout>
-            <Button
-                android:id="@+id/login_btn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center"
-                android:background="@drawable/button"
-                style="@style/buttonStyle"
-                android:text="Sign In"
-                android:textSize="16dp"
-                android:clickable="true"
-                android:letterSpacing="0.05"
+                    android:textAlignment="textEnd" />
+
+            </LinearLayout>
+
+            <EditText
+                style="@style/Signup_Style"
+                android:inputType="textPassword"
+                android:id="@+id/login_secret"
+                android:background="@android:color/white"
+                android:textColor="@android:color/black"
+                android:textColorHint="#F5F5F5"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"
                 android:layout_marginTop="8dp" />
         </LinearLayout>
         <LinearLayout
@@ -119,6 +124,18 @@
                     android:text="Register Here"/>
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
 
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        style="@style/buttonStyle"
+        android:text="Sign In"
+        android:textSize="16dp"
+        android:clickable="true"
+        android:letterSpacing="0.05"
+        android:layout_gravity="bottom|center" />
 </FrameLayout>

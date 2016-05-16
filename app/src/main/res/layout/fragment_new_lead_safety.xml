@@ -14,29 +14,42 @@
         android:focusableInTouchMode="true"
         android:padding="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical">-->
+        <android.support.design.widget.TextInputLayout
+            android:layout_toRightOf="@+id/spinner"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Customer Name"
-            android:textColor="@android:color/black"
-
-            android:textSize="20dp"
-            />
-        <EditText
-            style="@style/Signup_Style"
-            android:inputType="text"
-            android:id="@+id/customer_name"
-            android:hint="Customer Name"
-            android:background="@drawable/text_border"
-            android:textColor="@android:color/black"
-            android:padding="8dp" />
-        <EditText
-            style="@style/Signup_Style"
-            android:inputType="text"
-            android:id="@+id/customer_address"
-            android:hint="Customer Address"
-            android:padding="8dp"
-            android:layout_marginLeft="2dp" />
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:id="@+id/customer_name_ti"
+            >
+            <EditText
+                style="@style/Signup_Style"
+                android:inputType="text"
+                android:id="@+id/customer_name"
+                android:hint="Customer Name"
+                android:padding="8dp"
+                android:layout_marginLeft="2dp" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_toRightOf="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:id="@+id/customer_address_ti"
+            >
+            <EditText
+                style="@style/Signup_Style"
+                android:inputType="text"
+                android:id="@+id/customer_address"
+                android:hint="Customer Address"
+                android:padding="8dp"
+                android:layout_marginLeft="2dp" />
+        </android.support.design.widget.TextInputLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -145,6 +158,43 @@
                 mstb:values="@array/income_array"
                 mstb:mstbPrimaryColor="@color/colorAccent"
                 mstb:mstbSecondaryColor="@android:color/white" />
+            <!--<RadioGroup-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/radioIncomeGroup"-->
+                <!--android:orientation='vertical'>-->
+                        <!--<RadioButton-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="&lt; 5 lakh per annum"-->
+                            <!--android:id="@+id/fivel_lac_per_annum"-->
+                            <!--android:checked="false" />-->
+                        <!--<RadioButton-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="5-10 lakh per annum"-->
+                            <!--android:id="@+id/five_to_ten_lac"-->
+                            <!--android:checked="false" />-->
+
+                        <!--<RadioButton-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="10-25 lakh per annum"-->
+                            <!--android:id="@+id/ten_to_twenty_five_lac"-->
+                            <!--android:checked="false" />-->
+                        <!--<RadioButton-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="25-50 lakh per annum"-->
+                            <!--android:id="@+id/twenty_five_to_fifty_lac"-->
+                            <!--android:checked="false" />-->
+                        <!--<RadioButton-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="> 50 lakh per annum"-->
+                            <!--android:id="@+id/fifty_and_above_lac"-->
+                            <!--android:checked="false" />-->
+            <!--</RadioGroup>-->
         </LinearLayout>
 
         <android.support.design.widget.TextInputLayout
