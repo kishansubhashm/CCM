@@ -5,14 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_vertical|center_horizontal"
+    android:background="@color/colorPrimary"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView
-        android:id="@+id/splash_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/login_signup_bg"
-        android:scaleType="centerCrop"
-        />
+    <!--<ImageView-->
+        <!--android:id="@+id/splash_image"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:src="@drawable/login_signup_bg"-->
+        <!--android:scaleType="centerCrop"-->
+        <!--/>-->
 
     <!--<ImageView-->
         <!--android:layout_width="wrap_content"-->
@@ -30,15 +31,48 @@
         android:gravity="center_vertical|center_horizontal"
         xmlns:android="http://schemas.android.com/apk/res/android">
 
-        <TextView
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Log in to your Account"
-            android:textAllCaps="true"
-            android:textColor="@android:color/white"
-            android:textAlignment="center"
-            android:textSize="18dp"
-            android:layout_marginBottom="48dp" />
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <!--<ImageView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:src="@drawable/ccm_logo_outline_thin"-->
+                    <!--android:layout_gravity="center_horizontal"-->
+                    <!--android:scaleType="centerCrop"-->
+                    <!--android:layout_marginBottom="8dp"/>-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CConnectMarket.com"
+                    android:textColor="@android:color/white"
+                    android:textAlignment="center"
+                    android:textSize="18dp"
+                    android:layout_marginBottom="8dp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="#FFFFFF"
+                    android:layout_marginBottom="24dp" />
+
+            </LinearLayout>
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textStyle="bold"-->
+                <!--android:text="Login"-->
+                <!--android:textAllCaps="true"-->
+                <!--android:textColor="@android:color/white"-->
+                <!--android:textAlignment="center"-->
+                <!--android:textSize="16dp" />-->
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,7 +80,7 @@
             android:focusable="true"
             android:focusableInTouchMode="true"
 
-            android:layout_margin="16dp">
+            android:layout_margin="24dp">
             />
             <TextView
                 android:layout_width="wrap_content"
@@ -73,14 +107,14 @@
                 android:text="Password"
                 android:textColor="@android:color/white"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
 
-                    android:text="Forgot?"
-                    android:textColor="@android:color/white"
-                    android:textAlignment="textEnd" />
+                <!--android:text="Forgot?"-->
+                <!--android:textColor="@android:color/white"-->
+                <!--android:textAlignment="textEnd" />-->
 
             </LinearLayout>
 
@@ -92,37 +126,34 @@
                 android:textColor="@android:color/black"
                 android:textColorHint="#F5F5F5"
                 android:padding="12dp"
-                android:layout_marginBottom="12dp"
                 android:layout_marginTop="8dp" />
         </LinearLayout>
+
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.75"
-                android:gravity="right">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
-                    android:text="Not a Member yet?"
-                    android:layout_marginRight="8dp" />
-            </LinearLayout>
-            <LinearLayout
+                android:textColor="@android:color/white"
+                android:text="Not a Member yet?"
+                android:layout_weight="1"
+                android:textAlignment="viewEnd"
+                android:layout_gravity="end"
+                android:paddingTop="16dp"/>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/register"
-                    android:textColor="@color/colorAccent"
-                    android:text="Register Here"/>
-            </LinearLayout>
+                android:id="@+id/register"
+                android:padding="16dp"
+                android:textColor="@color/colorAccent"
+                android:text="Register Here"
+                android:layout_weight="1"
+                android:textAlignment="viewStart"
+                android:layout_gravity="start"/>
+
         </LinearLayout>
 
 
@@ -131,9 +162,10 @@
         android:id="@+id/login_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/button"
+        android:background="@drawable/button_gold"
         style="@style/buttonStyle"
-        android:text="Sign In"
+        android:textAllCaps="true"
+        android:text="Login"
         android:textSize="16dp"
         android:clickable="true"
         android:letterSpacing="0.05"
