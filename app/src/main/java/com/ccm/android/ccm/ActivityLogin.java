@@ -26,6 +26,10 @@ public class ActivityLogin extends AppCompatActivity {
         final TextView login_name= (TextView)findViewById(R.id.login_name);
         final TextView login_secret=(TextView)findViewById(R.id.login_secret);
         final TextView register=(TextView)findViewById(R.id.register);
+
+        final String Destination = getIntent().getExtras().getString("Destination");
+
+
         register.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -33,6 +37,7 @@ public class ActivityLogin extends AppCompatActivity {
             }
         });
         Button signIn=(Button)findViewById(R.id.login_btn);
+        signIn.setText(Destination);
         signIn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

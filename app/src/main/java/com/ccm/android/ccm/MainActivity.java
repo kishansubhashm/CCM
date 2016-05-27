@@ -59,7 +59,11 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("CCM");
+        //getSupportActionBar().setTitle("CCM");
+        //final ActionBar actionBar = getActionBar();
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setIcon(R.drawable.ccm_logo_h24);
+        //getSupportActionBar().setBackgroundDrawable(R.drawable.ccm_logo_outline_thin);
 //        getSupportActionBar().setDisplayShowTitleEnabled(true);
 //        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_white_menu_24dp);
 //        getSupportActionBar().show();

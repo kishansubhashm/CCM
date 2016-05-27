@@ -44,7 +44,7 @@ public class Splash extends AppCompatActivity {
     }
 
     private void gotoSignin() {
-        Intent mIntent= new Intent(Splash.this,ActivityLogin.class);
+        Intent mIntent= new Intent(Splash.this,ActivityLoginOptions.class);
         startActivity(mIntent);
         finish();
     }
