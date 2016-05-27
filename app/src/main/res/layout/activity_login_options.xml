@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical|center_horizontal"
+    android:background="@color/colorPrimary"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--<ImageView-->
+        <!--android:id="@+id/splash_image"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:src="@drawable/login_signup_bg"-->
+        <!--android:scaleType="centerCrop"-->
+        <!--/>-->
+
+    <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/ccm_logo"-->
+        <!--android:scaleType="centerCrop"-->
+        <!--android:layout_gravity="center_horizontal|top"-->
+        <!--android:layout_marginTop="32dp" />-->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#77333333"
+        android:gravity="center_vertical|center_horizontal"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal">
+                <!--<ImageView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:src="@drawable/ccm_logo_outline_thin"-->
+                    <!--android:layout_gravity="center_horizontal"-->
+                    <!--android:scaleType="centerCrop"-->
+                    <!--android:layout_marginBottom="8dp"/>-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CConnectMarket.com"
+                    android:textColor="@android:color/white"
+                    android:textAlignment="center"
+                    android:textSize="18dp"
+                    android:layout_marginBottom="8dp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="#FFFFFF"
+                    android:layout_marginBottom="72dp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/login_emp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_gold"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                style="@style/LoginOptionsButton"
+                android:text="Login as CCM Employee"
+                android:textSize="16dp"
+                android:clickable="true"
+                android:letterSpacing="0.05"
+                android:onClick="gotoLogin"
+                android:layout_marginBottom="24dp"/>
+
+            <Button
+                android:id="@+id/login_rcp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_gold"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                style="@style/LoginOptionsButton"
+                android:text="Login as RCP"
+                android:textSize="16dp"
+                android:clickable="true"
+                android:letterSpacing="0.05"
+                android:onClick="gotoLogin"/>
+        </LinearLayout>
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="24dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="Not a Member yet?"
+                android:layout_weight="1"
+                android:textAlignment="viewEnd"
+                android:layout_gravity="end"
+                android:paddingTop="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/register"
+                android:padding="16dp"
+                android:textColor="@color/colorAccent"
+                android:text="Register Here"
+                android:layout_weight="1"
+                android:textAlignment="viewStart"
+                android:layout_gravity="start"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</FrameLayout>
