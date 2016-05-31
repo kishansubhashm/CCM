@@ -86,15 +86,6 @@ public class ActivitySignup extends AppCompatActivity {
                     else if (singupResponse.getInt("status") == 1){
                         SessionHandler session= new SessionHandler(mContext,mActivity);
                         session.createLoginSession(login_name.getText().toString().trim());
-
-                        try {
-                            Splash.userBundle.add(new User(singupResponse.getString("Name"), singupResponse.getInt("lvl")));
-                            Cache.writeObject(getApplicationContext(), getResources().getString(R.string.serialization_KEY), Splash.userBundle);
-                        } catch (IOException e) {
-                            Log.d("Cache", " read/write");
-                            e.printStackTrace();
-                        }
-
                         gotoHome();
                         Toast.makeText(ActivitySignup.this, "You have been successfully verified and registered.", Toast.LENGTH_SHORT).show();
                     }
