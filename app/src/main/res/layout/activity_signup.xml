@@ -91,7 +91,7 @@
             <EditText
                 style="@style/Signup_Style"
                 android:inputType="text"
-                android:id="@+id/mobile"
+                android:id="@+id/signup_phone"
                 android:background="@android:color/white"
                 android:textColor="@android:color/black"
                 android:padding="12dp"
@@ -106,7 +106,7 @@
             <EditText
                 style="@style/Signup_Style"
                 android:inputType="text"
-                android:id="@+id/login_name"
+                android:id="@+id/signup_pan"
                 android:background="@android:color/white"
                 android:textColor="@android:color/black"
                 android:padding="12dp"
@@ -122,7 +122,7 @@
             <EditText
                 style="@style/Signup_Style"
                 android:inputType="textPassword"
-                android:id="@+id/login_secret"
+                android:id="@+id/signup_secret"
                 android:background="@android:color/white"
                 android:textColor="@android:color/black"
                 android:textColorHint="#F5F5F5"

@@ -53,7 +53,7 @@ public class ActivityLogin extends AppCompatActivity {
             public void onClick(View v) {
                 String username = login_name.getText().toString().trim();
                 String password = login_secret.getText().toString().trim();
-                String loginUrl = "ccm.viveninfomedia.com/signin";
+                String loginUrl = "http://ccm.viveninfomedia.com/signin";
 
                 HashMap<String, String> loginParams = new HashMap<String, String>();
                 loginParams.put("id", username);

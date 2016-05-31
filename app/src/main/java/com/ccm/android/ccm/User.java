@@ -6,31 +6,18 @@ import java.io.Serializable;
  * Created by KishanSubhashMiryala on 5/12/2016.
  */
 public class User implements Serializable {
-    private String fName;
-    private String lName;
-    private String uName;
     private String mobileNo;
-    private String passString;
+    private Integer lvl;
 
-    public User(String fName,
-            String lName,
-            String uName,
-            String mobileNo,
-            String passString){
-        this.fName=fName;
-        this.lName=lName;
-        this.uName=uName;
+    public User(String mobileNo, Integer lvl){
         this.mobileNo=mobileNo;
-        this.passString=passString;
+        this.lvl=lvl;
     }
 
-    protected String getuName(){
-        return this.uName;
-    }
     protected String getMobile(){
         return this.mobileNo;
     }
-    protected String getPassword(){
-        return this.passString;
+    protected Integer getLvl(){
+        return this.lvl;
     }
 }

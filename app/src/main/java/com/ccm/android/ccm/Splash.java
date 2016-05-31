@@ -55,11 +55,7 @@ public class Splash extends AppCompatActivity {
 
             List<userList> userList = (List<userList>)
                     Cache.readObject(getApplicationContext(), getResources().getString( R.string.serialization_KEY));
-//            userBundle = new ArrayList<BluetoothDevice>(userList.get(0).getBTDeviceList());
 
-            List<User> cachedBTList = (List<User>)
-                    Cache.readObject(mContext, mContext.getResources().getString( R.string.serialization_KEY));
-            userBundle.addAll(cachedBTList);
             for (int i=0;i<userBundle.size();++i){
                 Log.d("user name",userBundle.get(i).getuName());
                 Log.d("password",userBundle.get(i).getPassword());
