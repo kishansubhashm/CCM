@@ -20,10 +20,7 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by KishanSubhashMiryala on 5/11/2016.
@@ -66,15 +63,15 @@ public class ActivitySignup extends AppCompatActivity {
                 signupParams.put("pan", pan);
                 signupParams.put("password", secret);
 
-                signupJsonReq = new CustomRequest(Request.Method.POST, signupURL, signupParams, loginSuccessListener(), loginErrorListener());
+                signupJsonReq = new CustomRequest(Request.Method.POST, signupURL, signupParams, signupSuccessListener(), signupErrorListener());
                 Volley.newRequestQueue(mContext).add(signupJsonReq);
             }
         });
     }
 
 
-    private Response.Listener<JSONObject> loginSuccessListener() {
-        final TextView login_name= (TextView)findViewById(R.id.login_name);
+    private Response.Listener<JSONObject> signupSuccessListener() {
+        final EditText signup_phone= (EditText) findViewById(R.id.signup_phone);
         return new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject singupResponse) {
@@ -85,7 +82,7 @@ public class ActivitySignup extends AppCompatActivity {
                     }
                     else if (singupResponse.getInt("status") == 1){
                         SessionHandler session= new SessionHandler(mContext,mActivity);
-                        session.createLoginSession(login_name.getText().toString().trim());
+                        session.createLoginSession(signup_phone.getText().toString().trim());
                         gotoHome();
                         Toast.makeText(ActivitySignup.this, "You have been successfully verified and registered.", Toast.LENGTH_SHORT).show();
                     }
@@ -96,7 +93,7 @@ public class ActivitySignup extends AppCompatActivity {
             }
         };
     }
-    private Response.ErrorListener loginErrorListener() {
+    private Response.ErrorListener signupErrorListener() {
         return new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
@@ -116,7 +113,7 @@ public class ActivitySignup extends AppCompatActivity {
     }
 
     private void gotoLogin(){
-        Intent mIntent= new Intent(ActivitySignup.this,ActivityLogin.class);
+        Intent mIntent= new Intent(ActivitySignup.this,ActivityLoginOptions.class);
         startActivity(mIntent);
         finish();
     }

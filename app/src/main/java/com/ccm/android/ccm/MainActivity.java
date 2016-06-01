@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void gotoSignin() {
         SessionHandler.logoutUser();
-        Intent mIntent = new Intent(MainActivity.this, ActivityLogin.class);
+        Intent mIntent = new Intent(MainActivity.this, ActivityLoginOptions.class);
         startActivity(mIntent);
         finish();
     }
@@ -214,22 +214,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle actionbar item clicks here. The action bar will
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-////        if (id==android.R.id.home){
-////            mDrawerLayout.openDrawer(GravityCompat.START);
-////            return true;
-////        }
-//
-//        if (mDrawerToggle.onOptionsItemSelected(item)) {
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);

@@ -220,25 +220,25 @@
                             android:id="@+id/ofc_address" />
                     </LinearLayout>
                 </LinearLayout>
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/button_cntnr"
-                    android:layout_below="@+id/ofc_address_row"
-                    android:orientation="horizontal"
-                    android:layout_alignParentBottom="false"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center">
-                    <org.honorato.multistatetogglebutton.MultiStateToggleButton
-                        android:id="@+id/mstb_multi_id"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        mstb:values="@array/status_array"
-                        mstb:mstbPrimaryColor="@color/colorAccent"
-                        mstb:mstbSecondaryColor="@color/almost_white"
-                        android:gravity="center_horizontal"
-                        android:layout_centerHorizontal="true" />
-                </RelativeLayout>
+                <!--<RelativeLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/button_cntnr"-->
+                    <!--android:layout_below="@+id/ofc_address_row"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--android:layout_alignParentBottom="false"-->
+                    <!--android:layout_centerHorizontal="true"-->
+                    <!--android:layout_gravity="center">-->
+                    <!--<org.honorato.multistatetogglebutton.MultiStateToggleButton-->
+                        <!--android:id="@+id/mstb_multi_id"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--mstb:values="@array/status_array"-->
+                        <!--mstb:mstbPrimaryColor="@color/colorAccent"-->
+                        <!--mstb:mstbSecondaryColor="@color/almost_white"-->
+                        <!--android:gravity="center_horizontal"-->
+                        <!--android:layout_centerHorizontal="true" />-->
+                <!--</RelativeLayout>-->
 
             </LinearLayout>
         </RelativeLayout>

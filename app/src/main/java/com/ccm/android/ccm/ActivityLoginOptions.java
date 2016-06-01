@@ -53,7 +53,7 @@ public class ActivityLoginOptions extends AppCompatActivity {
         if(v.getId() == R.id.login_emp)
             dest = "Login as Employee";
         else if (v.getId() == R.id.login_rcp)
-            dest = "Login as RCP";
+            dest = "Login as Partner";
 
         mIntent.putExtra("Destination", dest);
         startActivity(mIntent);

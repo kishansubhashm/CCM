@@ -8,20 +8,20 @@
     android:background="@color/colorPrimary"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <!--<ImageView-->
-        <!--android:id="@+id/splash_image"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:src="@drawable/login_signup_bg"-->
-        <!--android:scaleType="centerCrop"-->
-        <!--/>-->
+    <!--android:id="@+id/splash_image"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:src="@drawable/login_signup_bg"-->
+    <!--android:scaleType="centerCrop"-->
+    <!--/>-->
 
     <!--<ImageView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:src="@drawable/ccm_logo"-->
-        <!--android:scaleType="centerCrop"-->
-        <!--android:layout_gravity="center_horizontal|top"-->
-        <!--android:layout_marginTop="32dp" />-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:src="@drawable/ccm_logo"-->
+    <!--android:scaleType="centerCrop"-->
+    <!--android:layout_gravity="center_horizontal|top"-->
+    <!--android:layout_marginTop="32dp" />-->
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -40,12 +40,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <!--<ImageView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:src="@drawable/ccm_logo_outline_thin"-->
-                    <!--android:layout_gravity="center_horizontal"-->
-                    <!--android:scaleType="centerCrop"-->
-                    <!--android:layout_marginBottom="8dp"/>-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@drawable/ccm_logo_outline_thin"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:scaleType="centerCrop"-->
+                <!--android:layout_marginBottom="8dp"/>-->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -63,14 +63,14 @@
             </LinearLayout>
 
             <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:textStyle="bold"-->
-                <!--android:text="Login"-->
-                <!--android:textAllCaps="true"-->
-                <!--android:textColor="@android:color/white"-->
-                <!--android:textAlignment="center"-->
-                <!--android:textSize="16dp" />-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textStyle="bold"-->
+            <!--android:text="Login"-->
+            <!--android:textAllCaps="true"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textSize="16dp" />-->
         </LinearLayout>
 
         <LinearLayout
@@ -85,7 +85,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="User Name"
+                android:text="Phone Number"
                 android:textColor="@android:color/white"/>
             <EditText
                 style="@style/Signup_Style"
@@ -100,14 +100,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Password"
-                android:textColor="@android:color/white"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Password"
+                    android:textColor="@android:color/white"/>
 
-            <!--<TextView-->
+                <!--<TextView-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
                 <!--android:layout_weight="1"-->
@@ -130,9 +130,9 @@
         </LinearLayout>
 
         <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

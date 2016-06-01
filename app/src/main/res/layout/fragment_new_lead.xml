@@ -8,14 +8,14 @@
     android:animateLayoutChanges="true">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:textColor="@android:color/black"
-        android:padding="16dp"
-        android:layout_marginTop="8dp">
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:focusable="true"
+                  android:focusableInTouchMode="true"
+                  android:textColor="@android:color/black"
+                  android:padding="16dp"
+                  android:layout_marginTop="8dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -35,12 +35,26 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Customer Address"
+            android:text="Customer Phone Number"
             />
         <EditText
             style="@style/Signup_Style"
             android:inputType="text"
-            android:id="@+id/customer_address"
+            android:id="@+id/customer_phone"
+            android:background="@android:color/white"
+            android:textColor="@android:color/black"
+            android:padding="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Customer PAN Number"/>
+        <EditText
+            style="@style/Signup_Style"
+            android:inputType="text"
+            android:id="@+id/customer_pan_num"
             android:background="@android:color/white"
             android:textColor="@android:color/black"
             android:padding="12dp"
@@ -48,24 +62,70 @@
             android:layout_marginBottom="24dp" />
 
 
-        <!--<EditText-->
-            <!--style="@style/Signup_Style"-->
-            <!--android:inputType="text"-->
-            <!--android:id="@+id/customer_address"-->
-            <!--android:hint="Customer Address"-->
-            <!--android:padding="8dp"-->
-            <!--android:layout_marginLeft="2dp" />-->
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Occupation"-->
-                <!--android:textSize="20dp"-->
-                <!--android:paddingTop="12dp"-->
-                <!--android:textColor="#333" />-->
-        <!--</LinearLayout>-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Customer Aadhaar Number"
+            />
+        <EditText
+            style="@style/Signup_Style"
+            android:inputType="text"
+            android:id="@+id/customer_aadhaar"
+            android:background="@android:color/white"
+            android:textColor="@android:color/black"
+            android:padding="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Customer Address"/>
+        <EditText
+            style="@style/Signup_Style"
+            android:inputType="text"
+            android:id="@+id/customer_addr"
+            android:background="@android:color/white"
+            android:textColor="@android:color/black"
+            android:padding="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Customer's Annual Income"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" (lacs per yr)"
+                android:textColor="@color/colorAccent"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp">
+            <org.honorato.multistatetogglebutton.MultiStateToggleButton
+                android:id="@+id/mstb_customer_income"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                mstb:values="@array/income_array"
+                mstb:mstbPrimaryColor="@color/colorAccent"
+                mstb:mstbSecondaryColor="@android:color/white" />
+        </LinearLayout>
+
+        <!--
+        This is where customer occupation information starts
+        -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -80,25 +140,25 @@
             <RadioGroup
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/radioOccupationGroup"
+                android:id="@+id/occupationGroup"
                 android:orientation='horizontal'>
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Self Employed"
-                    android:id="@+id/setting_self_employee"
+                    android:id="@+id/customer_self"
                     android:checked="true" />
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Employee"
-                    android:id="@+id/setting_employee_edit"
+                    android:id="@+id/customer_employed"
                     android:checked="false" />
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Professional"
-                    android:id="@+id/setting_profesional_edit"
+                    android:id="@+id/customer_professional"
                     android:checked="false" />
             </RadioGroup>
         </LinearLayout>
@@ -112,7 +172,7 @@
             <RadioGroup
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/radioInnerGroup"
+                android:id="@+id/occupationDetailGroup"
                 android:orientation='vertical'
                 >
                 <RadioButton
@@ -156,7 +216,7 @@
             <RadioGroup
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/radioAcceptCards"
+                android:id="@+id/bizcards"
                 android:orientation='horizontal'
                 android:layout_marginTop="8dp">
                 <RadioButton
@@ -194,7 +254,7 @@
             <EditText
                 style="@style/Signup_Style"
                 android:inputType="text"
-                android:id="@+id/monthly_card_sales"
+                android:id="@+id/bizsales"
                 android:background="@android:color/white"
                 android:textColor="@android:color/black"
                 android:padding="12dp"
@@ -209,7 +269,7 @@
             <EditText
                 style="@style/Signup_Style"
                 android:inputType="text"
-                android:id="@+id/pos_since"
+                android:id="@+id/bizsince"
                 android:background="@android:color/white"
                 android:textColor="@android:color/black"
                 android:padding="12dp"
@@ -224,7 +284,7 @@
             <RadioGroup
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/premises"
+                android:id="@+id/bizpremises"
                 android:orientation='horizontal'
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="24dp">
@@ -252,7 +312,7 @@
             <EditText
                 style="@style/Signup_Style"
                 android:inputType="text"
-                android:id="@+id/business_nature"
+                android:id="@+id/biznature"
                 android:background="@android:color/white"
                 android:textColor="@android:color/black"
                 android:padding="12dp"
@@ -267,141 +327,15 @@
             <EditText
                 style="@style/Signup_Style"
                 android:inputType="text"
-                android:id="@+id/business_phone"
+                android:id="@+id/bizphone"
                 android:background="@android:color/white"
                 android:textColor="@android:color/black"
                 android:padding="12dp"
                 android:layout_marginTop="8dp" />
         </LinearLayout>
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Customer's Annual Income"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" (lacs per yr)"
-                android:textColor="@color/colorAccent"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="24dp">
-            <org.honorato.multistatetogglebutton.MultiStateToggleButton
-                android:id="@+id/mstb_customer_income"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                mstb:values="@array/income_array"
-                mstb:mstbPrimaryColor="@color/colorAccent"
-                mstb:mstbSecondaryColor="@android:color/white" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Customer PAN Number"/>
-        <EditText
-            style="@style/Signup_Style"
-            android:inputType="text"
-            android:id="@+id/customer_pan_num"
-            android:background="@android:color/white"
-            android:textColor="@android:color/black"
-            android:padding="12dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="24dp" />
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:layout_toRightOf="@+id/spinner"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginBottom="8dp"-->
-            <!--android:layout_marginTop="8dp"-->
-            <!--android:id="@+id/pan_num_ti"-->
-            <!-->-->
-            <!--<EditText-->
-                <!--style="@style/Signup_Style"-->
-                <!--android:inputType="text"-->
-                <!--android:id="@+id/pan_num"-->
-                <!--android:hint="PAN Card Number"-->
-                <!--android:padding="8dp"-->
-                <!--android:layout_marginLeft="2dp" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Customer Address"/>
-        <EditText
-            style="@style/Signup_Style"
-            android:inputType="text"
-            android:id="@+id/customer_addr"
-            android:background="@android:color/white"
-            android:textColor="@android:color/black"
-            android:padding="12dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="24dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Customer Aadhaar Number"
-            />
-        <EditText
-            style="@style/Signup_Style"
-            android:inputType="text"
-            android:id="@+id/customer_aadhaar"
-            android:background="@android:color/white"
-            android:textColor="@android:color/black"
-            android:padding="12dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="24dp" />
-
-
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:layout_toRightOf="@+id/spinner"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginBottom="8dp"-->
-            <!--android:layout_marginTop="8dp"-->
-            <!--android:id="@+id/aadhar_num_ti"-->
-            <!-->-->
-            <!--<EditText-->
-                <!--style="@style/Signup_Style"-->
-                <!--android:inputType="text"-->
-                <!--android:id="@+id/aadhar_num"-->
-                <!--android:padding="8dp"-->
-                <!--android:hint="Aadhaar  Card Number"-->
-                <!--android:layout_marginLeft="2dp" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
-
-        <!--<android.support.design.widget.TextInputLayout-->
-            <!--android:layout_toRightOf="@+id/spinner"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginBottom="8dp"-->
-            <!--android:layout_marginTop="8dp"-->
-            <!--android:id="@+id/address_ti"-->
-            <!-->-->
-            <!--<EditText-->
-                <!--style="@style/Signup_Style"-->
-                <!--android:inputType="text"-->
-                <!--android:id="@+id/address"-->
-                <!--android:padding="8dp"-->
-                <!--android:lines="5"-->
-                <!--android:hint="Office / Business Address"-->
-                <!--android:layout_marginLeft="2dp" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
-
         <Button
-            android:id="@+id/new_lead_btn"
+            android:id="@+id/submitlead"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center"
