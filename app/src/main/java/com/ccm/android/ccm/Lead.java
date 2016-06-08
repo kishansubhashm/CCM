@@ -1,5 +1,10 @@
 package com.ccm.android.ccm;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.text.ParseException;
+
 /**
  * Created by KishanSubhashMiryala on 5/16/2016.
  */
@@ -10,45 +15,42 @@ public class Lead {
     public String getName() {
         return name;
     }
-
+    public String getPhone() {
+        return phone;
+    }
+    public String getPanCard() {
+        return panCard;
+    }
+    public String getAadharCard() {
+        return aadhaarCard;
+    }
     public String getAddress() {
         return address;
     }
 
-    public int getOccupationLevel() {
-        return occupationLevel;
+    public int getOccupation() {
+        return occupation;
     }
-
-    public int getOccupationPos() {
-        return occupationPos;
+    public int getOccupationdetail() {
+        return occupationdetail;
     }
 
     public String[] getSELF_EMP() {
-        return SELF_EMP;
+        return SELF;
     }
-
     public String[] getEMP() {
         return EMP;
     }
-
     public String[] getPROFESSIONAL() {
-        return PROFESSIONAL;
+        return PROF;
     }
 
-    public int getIncomePos() {
-        return incomePos;
+    public String getIncome() {
+        return income;
     }
 
     public String[] getANUAL_INCOME() {
         return ANUAL_INCOME;
-    }
-
-    public String getPanCard() {
-        return panCard;
-    }
-
-    public String getAadharCard() {
-        return aadharCard;
     }
 
     public int getStatus() {
@@ -66,52 +68,47 @@ public class Lead {
         this.status=status;
     }
 
-    public String getOfficeOrBusinessAddress() {
-        return officeOrBusinessAddress;
-    }
+    private String name, address, phone, panCard, aadhaarCard;
+    private String bizcards, bizsales, bizsince, bizpremises, biznature, bizphone;
 
-    private String name;
-    private String address;
     private int status;
     private boolean isOpened;
-    private final String occupation[]={
-            "Self Employed at a",
-            "Salaried at a",
-            "Annual Income"
-    };
 
-    private int occupationLevel;
-    private int occupationPos;
+    private int occupation, occupationdetail;
+    private final String occupationMap[]={"Self Employed at a", "Salaried at a", "Annual Income"};
+    private final String SELF[]= {"Proprietary company", "Partnership company", "Private Limited company"};
+    private final String EMP[]= {"Proprietary company", "Private Limited company", "Government"};
+    private final String PROF[]= {"Doctor", "Architect", "CA"};
 
-    private final String SELF_EMP[]= {"Proprietary company",
-                        "Partnership company","Private Limited company"};
-    private final String EMP[]= {"Proprietary company",
-                        "Private Limited company","Government"};
-    private final String PROFESSIONAL[]= {"Doctor",
-                        "Architect","CA"};
-
-    private int incomePos;
+    private String income;
     private final String ANUAL_INCOME[]={"< 5 lakh per annum",
                                         "5-10 lakh per annum",
                                         "10-25 lakh per annum",
                                         "25-50 lakh per annum",
                                         "> 50 lakh per annum"};
-    private String panCard;
-    private String aadharCard;
-    private String officeOrBusinessAddress;
 
-    public Lead(String name, String address, int occupationLevel, int occupationPos, int incomePos, String panCard, String aadharCard,
-                String officeOrBusinessAddress, int status, boolean isOpened){
+    public Lead(String name, String phone, String panCard, String aadharCard, String addr, int occupation,
+                int occupationdetail, String income, JSONObject biz, int sts, boolean isOpened){
         this.name=name;
-        this.address=address;
-        this.occupationLevel=occupationLevel;
-        this.occupationPos=occupationPos;
-        this.incomePos=incomePos;
+        this.phone=phone;
         this.panCard=panCard;
-        this.aadharCard=aadharCard;
-        this.officeOrBusinessAddress=officeOrBusinessAddress;
-        this.status=status;
-        this.isOpened=isOpened;
+        this.aadhaarCard=aadharCard;
+        this.address=addr;
+        this.occupation=occupation;
+        this.occupationdetail=occupationdetail;
+        this.income=income;
 
+        try{
+            this.bizcards = biz.getString("bizcards").toString();
+            this.bizsales = biz.getString("bizsales").toString();
+            this.bizsince = biz.getString("bizsince").toString();
+            this.bizpremises = biz.getString("bizpremises").toString();
+            this.biznature = biz.getString("biznature").toString();
+            this.bizphone = biz.getString("bizphone").toString();
+        }catch(Exception pe){
+            System.out.println(pe);
+        }
+        this.status=sts;
+        this.isOpened=isOpened;
     }
 }

@@ -39,7 +39,7 @@
             />
         <EditText
             style="@style/Signup_Style"
-            android:inputType="text"
+            android:inputType="phone"
             android:id="@+id/customer_phone"
             android:background="@android:color/white"
             android:textColor="@android:color/black"
@@ -253,7 +253,7 @@
                 />
             <EditText
                 style="@style/Signup_Style"
-                android:inputType="text"
+                android:inputType="number"
                 android:id="@+id/bizsales"
                 android:background="@android:color/white"
                 android:textColor="@android:color/black"
@@ -326,7 +326,7 @@
                 />
             <EditText
                 style="@style/Signup_Style"
-                android:inputType="text"
+                android:inputType="phone"
                 android:id="@+id/bizphone"
                 android:background="@android:color/white"
                 android:textColor="@android:color/black"

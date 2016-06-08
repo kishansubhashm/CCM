@@ -38,7 +38,7 @@ public class Splash extends AppCompatActivity {
                         gotoSignin();
                     }
                 }
-            }, 3000);
+            }, 1500);
     }
 
     private void gotoSignin() {

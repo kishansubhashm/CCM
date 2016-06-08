@@ -87,7 +87,7 @@
                 android:layout_marginLeft="32dp"
                 android:layout_marginRight="32dp"
                 style="@style/LoginOptionsButton"
-                android:text="Partner Login"
+                android:text="Referral Login"
                 android:textSize="16dp"
                 android:clickable="true"
                 android:letterSpacing="0.05"

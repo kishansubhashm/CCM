@@ -6,16 +6,13 @@
     android:layout_marginTop="2dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:cardview="http://schemas.android.com/tools"
-    xmlns:mstb="http://schemas.android.com/apk/res-auto"
-    >
+    xmlns:cardview="http://schemas.android.com/tools">
     <android.support.v7.widget.CardView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/persnolizedArticleCardview"
         app:cardUseCompatPadding="true"
         android:foreground="?android:attr/selectableItemBackground"
-        cardview:cardElevation="6dp"
         cardview:cardCornerRadius="1dp"
         cardview:cardPreventCornerOverlap="false"
         >
@@ -40,7 +37,7 @@
                     android:id="@+id/name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="dfsdfsfd"
+                    android:text="Customer Name"
                     android:textSize="20dp"
                     android:paddingBottom="10dp"
                     android:paddingTop="10dp"
@@ -48,15 +45,14 @@
                     >
                 </TextView>
 
-                <TextView
+                <ImageView
                     android:id="@+id/work_status"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Approved"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:textSize="16dp" />
+                    android:layout_alignParentEnd="true"/>
+
             </RelativeLayout>
 
             <LinearLayout
@@ -70,9 +66,56 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/phone_row"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="16dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAllCaps="true"
+                            android:textColor="@color/list_lbl"
+                            android:layout_marginBottom="4dp"
+                            android:text="Phone Number"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="asddsfsfgsfs"
+                            android:textColor="@color/list_val"
+                            android:id="@+id/phone" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/addr_row"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="16dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAllCaps="true"
+                            android:textColor="@color/list_lbl"
+                            android:layout_marginBottom="4dp"
+                            android:text="Address"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="asddsfsfgsfs"
+                            android:textColor="@color/list_val"
+                            android:id="@+id/addr" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -86,7 +129,7 @@
                             android:textAllCaps="true"
                             android:textColor="@color/list_lbl"
                             android:layout_marginBottom="4dp"
-                            android:text="Occupation : "
+                            android:text="Occupation"
                             />
                         <TextView
                             android:layout_width="wrap_content"
@@ -95,11 +138,10 @@
                             android:textColor="@color/list_val"
                             android:id="@+id/occupation" />
                     </LinearLayout>
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/annual_income_row"
+                        android:id="@+id/income_row"
                         android:orientation="vertical"
                         android:layout_weight="1"
                         android:layout_marginBottom="16dp">
@@ -109,7 +151,7 @@
                             android:textAllCaps="true"
                             android:textColor="@color/list_lbl"
                             android:layout_marginBottom="4dp"
-                            android:text="Income : "
+                            android:text="Income"
                             />
                         <TextView
                             android:layout_width="wrap_content"
@@ -119,12 +161,10 @@
                             android:id="@+id/income" />
                     </LinearLayout>
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="horizontal">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -138,7 +178,7 @@
                             android:textAllCaps="true"
                             android:textColor="@color/list_lbl"
                             android:layout_marginBottom="4dp"
-                            android:text="Pan : "
+                            android:text="PAN NUMBER"
                             />
                         <TextView
                             android:layout_width="wrap_content"
@@ -150,15 +190,14 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/aadhar_row"
+                        android:id="@+id/aadhaar_row"
                         android:layout_weight="1"
                         android:orientation="vertical"
-                        android:layout_marginBottom="16dp"
-                        >
+                        android:layout_marginBottom="16dp">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Aadhar Number : "
+                            android:text="Aadhar Number"
                             android:id="@+id/textView"
                             android:textAllCaps="true"
                             android:textColor="@color/list_lbl"
@@ -169,77 +208,9 @@
                             android:layout_height="wrap_content"
                             android:text="asdasdasdasd"
                             android:textColor="@color/list_val"
-                            android:id="@+id/aadhar_card" />
+                            android:id="@+id/aadhaar_card" />
                     </LinearLayout>
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/address_row"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginBottom="16dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAllCaps="true"
-                            android:textColor="@color/list_lbl"
-                            android:text="Residence : "
-                            android:layout_marginBottom="4dp" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/address"
-                            android:text="Hyderabad"
-                            android:textColor="@color/list_val" />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/ofc_address_row"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginBottom="16dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Office : "
-                            android:textAllCaps="true"
-                            android:textColor="@color/list_lbl"
-                            android:layout_marginBottom="4dp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Secunderabad"
-                            android:textColor="@color/list_val"
-                            android:id="@+id/ofc_address" />
-                    </LinearLayout>
-                </LinearLayout>
-                <!--<RelativeLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:id="@+id/button_cntnr"-->
-                    <!--android:layout_below="@+id/ofc_address_row"-->
-                    <!--android:orientation="horizontal"-->
-                    <!--android:layout_alignParentBottom="false"-->
-                    <!--android:layout_centerHorizontal="true"-->
-                    <!--android:layout_gravity="center">-->
-                    <!--<org.honorato.multistatetogglebutton.MultiStateToggleButton-->
-                        <!--android:id="@+id/mstb_multi_id"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--mstb:values="@array/status_array"-->
-                        <!--mstb:mstbPrimaryColor="@color/colorAccent"-->
-                        <!--mstb:mstbSecondaryColor="@color/almost_white"-->
-                        <!--android:gravity="center_horizontal"-->
-                        <!--android:layout_centerHorizontal="true" />-->
-                <!--</RelativeLayout>-->
-
             </LinearLayout>
         </RelativeLayout>
     </android.support.v7.widget.CardView>

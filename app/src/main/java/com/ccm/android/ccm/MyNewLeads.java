@@ -5,11 +5,24 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.android.volley.NoConnectionError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -37,18 +50,58 @@ public class MyNewLeads extends Fragment {
     }
 
     public void loadDetails(){
-        myBundle.add(new Lead("Martyn", "pittsburgh, 407 S Craig St", 2, 1, 1, "RSC DA3 F3A 44A", "D5A3ASSDSD533AASD", "68 Kane Peter St.",0,false));
-        myBundle.add(new Lead("John","New York, Street 2",0,1,2,"CD ASDS 454A A3F3","1A2ASD2ASD33ASD5ASD","253, Joseph P Church",0,false));
-        myBundle.add(new Lead("Mark","Washington, Lane 16",1,2,2,"CD 454A ASDS A3F3","2ASD31A2ASD3ASD5ASD","8-2D Kane Straut Road",0,false));
-        myBundle.add(new Lead("Cooper", "London, Road 52", 2, 1, 1, "CD A3F3 ASDS 454A", "3ASD5ASD33ASD5ASD", "68/215, Oakland View",0,false));
-        myBundle.add(new Lead("Martyn", "pittsburgh, 407 S Craig St", 2, 1, 1, "RSC DA3 F3A 44A", "D5A3ASSDSD533AASD", "68 Kane Peter St.",0,false));
-        myBundle.add(new Lead("Jessica","New York, Street 2",1,0,1,"CD F3AS 454A A3F3","1A2ASD2ASD33ASD5ASD","253, Joseph P Church",0,false))
-        ;myBundle.add(new Lead("Martyn", "pittsburgh, 407 S Craig St", 2, 1, 1, "RSC DA3 F3A 44A", "D5A3ASSDSD533AASD", "68 Kane Peter St.",0,false));
-        myBundle.add(new Lead("Adam's","New York, Street 2",0,0,0,"A3 F3AS 454A A3F3","1A2ASD2ASD33ASD5ASD","253, Joseph P Church",0,false));
-        myBundle.add(new Lead("Boucher","Washington, Lane 16",2,2,2,"CD 454A ASDS A3F3","2ASD31A2ASD3ASD5ASD","8-2D Kane Straut Road",0,false));
-        myBundle.add(new Lead("Huggins", "London, Road 52", 2, 2, 1, "CD 454A ASDS 454A", "3ASD5ASD33ASD5ASD", "68/215, Oakland View",0,false));
-        initializeAdapter();
+        HashMap<String, String> leadOwner = new HashMap<String, String>();
+        leadOwner.put("ccmid", SessionHandler.getUserFullName());
+        leadOwner.put("MS", "0586");
+        String getleadsurl = "http://ccm.viveninfomedia.com/mgtld";
+        CustomRequest getmyleads;
+        getmyleads = new CustomRequest(Request.Method.POST, getleadsurl, leadOwner, getleadsSuccessListener(), getleadsErrorListener());
+        Volley.newRequestQueue(mContext).add(getmyleads);
     }
+
+    private Response.Listener<JSONObject> getleadsSuccessListener() {
+        return new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject getleadsResponse) {
+                Integer status;
+                try {
+                    if (getleadsResponse.getInt("status") == 0){
+                        Toast.makeText(mContext, "No leads available for you.", Toast.LENGTH_SHORT).show();
+                    }
+                    else if (getleadsResponse.getInt("status") == 1){
+                        Toast.makeText(mContext, "Got leads. Now Parsing them", Toast.LENGTH_SHORT).show();
+                        JSONArray leads = getleadsResponse.getJSONArray("leads");
+                        JSONObject lead;
+                        for(int i =0; i < leads.length(); i++){
+                            lead = leads.getJSONObject(i);
+                            myBundle.add(new Lead(lead.getString("name"), lead.getString("phone"), lead.getString("pan"),
+                                    lead.getString("aadhaar"),lead.getString("addr"), lead.getInt("occupation"),
+                                    lead.getInt("occupationdetail"), lead.getString("income"), new JSONObject(lead.getString("biz")),
+                                    lead.getInt("sts"),false));
+                        }
+                        initializeAdapter();
+                    }
+                }catch(Exception e){
+                    Log.e("Parse Leads","exception",e);
+                    Toast.makeText(mContext, "Failed to get your leads. Please contact admin: " + SessionHandler.getUserFullName(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        };
+    }
+
+    private Response.ErrorListener getleadsErrorListener() {
+        return new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if(error instanceof NoConnectionError) {
+                    Toast.makeText(mContext, "Could not connect to Internet. Check connection.", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(mContext, "Failed to get your leads. Please contact admin.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        };
+    }
+
     private void initializeAdapter(){
         mAdapter = new AdapterLead(myBundle,getContext(),getActivity());
         rv.setAdapter(mAdapter);

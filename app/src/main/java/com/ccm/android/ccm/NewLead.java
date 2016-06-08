@@ -21,11 +21,9 @@ import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.honorato.multistatetogglebutton.MultiStateToggleButton;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -37,6 +35,12 @@ public class NewLead extends Fragment {
     private View rootView;
     private Context mContext;
     private Activity mActivity;
+
+    private Button submitLeadButton;
+    private EditText cname, cphone, cpan, caddr, caadhaar;
+    private MultiStateToggleButton cincome;
+    private RadioGroup coccupation, coccupationdetail, ccards, cbizpremises;
+    private EditText cbizsales, cbizsince, cbiznature, cbizphone;
 
     private String[] occupation = {"customer_self", "customer_employed", "customer_professional"};
     @Nullable
@@ -54,8 +58,6 @@ public class NewLead extends Fragment {
         final RadioButton two = (RadioButton) rootView.findViewById(R.id.two);
         final RadioButton three = (RadioButton) rootView.findViewById(R.id.three);
 
-        final MultiStateToggleButton customerIncome = (MultiStateToggleButton) rootView.findViewById(R.id.mstb_customer_income);
-
         final TextView acceptCardsLabel = (TextView) rootView.findViewById(R.id.acceptCardsLabel);
         final LinearLayout acceptCardsView = (LinearLayout) rootView.findViewById(R.id.acceptCardsView);
         final LinearLayout cardsTxVolumeView = (LinearLayout) rootView.findViewById(R.id.cardsTxVolumeView);
@@ -65,48 +67,47 @@ public class NewLead extends Fragment {
 
         final RadioGroup radioAcceptCards = (RadioGroup) rootView.findViewById(R.id.bizcards);
 
-        final Button submitLeadButton = (Button) rootView.findViewById(R.id.submitlead);
+        this.submitLeadButton = (Button) rootView.findViewById(R.id.submitlead);
+        cname = (EditText) rootView.findViewById(R.id.customer_name);
+        cphone = (EditText) rootView.findViewById(R.id.customer_phone);
+        cpan = (EditText) rootView.findViewById(R.id.customer_pan_num);
+        caddr = (EditText) rootView.findViewById(R.id.customer_addr);
+        caadhaar = (EditText) rootView.findViewById(R.id.customer_aadhaar);
+        cincome = (MultiStateToggleButton) rootView.findViewById(R.id.mstb_customer_income);
+
+        coccupation = (RadioGroup) rootView.findViewById(R.id.occupationGroup);
+        coccupationdetail = (RadioGroup) rootView.findViewById(R.id.occupationDetailGroup);
+
+        ccards = (RadioGroup) rootView.findViewById(R.id.bizcards);
+        cbizpremises = (RadioGroup) rootView.findViewById(R.id.bizpremises);
+
+        cbizsales = (EditText) rootView.findViewById(R.id.bizsales);
+        cbizsince = (EditText) rootView.findViewById(R.id.bizsince);
+        cbiznature = (EditText) rootView.findViewById(R.id.biznature);
+        cbizphone = (EditText) rootView.findViewById(R.id.bizphone);
 
 
+        cincome.setElements(R.array.income_array, 2);
 
-        customerIncome.setElements(R.array.income_array, 2);
-
-        submitLeadButton.setOnClickListener(new View.OnClickListener() {
+        this.submitLeadButton.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View v) {
 
                 Boolean submissionValid = true;
+                submitLeadButton.setClickable(false);
 
                 /**
                  * All the variables to handle form submission.
                  */
-                final EditText cname = (EditText) rootView.findViewById(R.id.customer_name);
-                final EditText cphone = (EditText) rootView.findViewById(R.id.customer_phone);
-                final EditText cpan = (EditText) rootView.findViewById(R.id.customer_pan_num);
-                final EditText caddr = (EditText) rootView.findViewById(R.id.customer_addr);
-                final EditText caadhaar = (EditText) rootView.findViewById(R.id.customer_aadhaar);
-                final MultiStateToggleButton cincome = (MultiStateToggleButton) rootView.findViewById(R.id.mstb_customer_income);
-
-                final RadioGroup coccupation = (RadioGroup) rootView.findViewById(R.id.occupationGroup);
-                final RadioGroup coccupationdetail = (RadioGroup) rootView.findViewById(R.id.occupationDetailGroup);
-
-                final RadioGroup ccards = (RadioGroup) rootView.findViewById(R.id.bizcards);
-                final RadioGroup cbizpremises = (RadioGroup) rootView.findViewById(R.id.bizpremises);
-
-                final EditText cbizsales = (EditText) rootView.findViewById(R.id.bizsales);
-                final EditText cbizsince = (EditText) rootView.findViewById(R.id.bizsince);
-                final EditText cbiznature = (EditText) rootView.findViewById(R.id.biznature);
-                final EditText cbizphone = (EditText) rootView.findViewById(R.id.bizphone);
-
                 String name = cname.getText().toString().trim();
                 String phone = cphone.getText().toString().trim();
                 String addr = caddr.getText().toString().trim();
                 String pan = cpan.getText().toString().trim();
                 String aadhaar = caadhaar.getText().toString().trim();
 
-                if (name.isEmpty() || phone.isEmpty() || addr.isEmpty() || pan.isEmpty() || aadhaar.isEmpty())
+                if (name.isEmpty() || phone.isEmpty() || addr.isEmpty() || pan.isEmpty())
                     submissionValid = false;
 
                 String income = "N/A";
@@ -240,12 +241,13 @@ public class NewLead extends Fragment {
                     leadParam.put("since", bizsince);
                     leadParam.put("premises", bizpremises);
                     leadParam.put("nature", biznature);
-                    leadParam.put("phone", bizphone);
+                    leadParam.put("bphone", bizphone);
                     leadParam.put("ccmid", SessionHandler.getUserFullName());
 
                     leadParam.put("MS", "0586");
 
                     String leadsubmiturl = "http://ccm.viveninfomedia.com/madld";
+                    Log.d("New Lead",phone);
                     CustomRequest submitlead;
                     submitlead = new CustomRequest(Request.Method.POST, leadsubmiturl, leadParam, submitleadSuccessListener(), submitleadErrorListener());
                     Volley.newRequestQueue(mContext).add(submitlead);
@@ -291,25 +293,6 @@ public class NewLead extends Fragment {
             }
         });
 
-//        radioAcceptCards.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-//        {
-//            @Override
-//            public void onCheckedChanged(RadioGroup group, int checkedId) {
-//                // checkedId is the RadioButton selected
-//                switch(checkedId){
-//                    case R.id.cards_yes:
-//                        cardsTxVolumeView.setVisibility(View.VISIBLE);
-//                        break;
-//                    case R.id.cards_no:
-//                        cardsTxVolumeView.setVisibility(View.GONE);
-//                        break;
-//                }
-//            }
-//        });
-
-
-
-//        int selectedId=radioInnerGroup.getCheckedRadioButtonId();
         return rootView;
     }
 
@@ -321,13 +304,25 @@ public class NewLead extends Fragment {
                 try {
                     if (loginResponse.getInt("status") == 0){
                         Toast.makeText(mContext, "Could not submit lead. Please check again.", Toast.LENGTH_SHORT).show();
+
                     }
                     else if (loginResponse.getInt("status") == 1){
                         Toast.makeText(mContext, "Successfully submitted your lead", Toast.LENGTH_SHORT).show();
+                        cname.setText("");
+                        cphone.setText("");
+                        cpan.setText("");
+                        caddr.setText("");
+                        caadhaar.setText("");
+                        cbizsales.setText("");
+                        cbizsince.setText("");
+                        cbiznature.setText("");
+                        cbizphone.setText("");
+
                     }
                 }catch(Exception e){
                     Toast.makeText(mContext, "Server error. Please contact admin.", Toast.LENGTH_SHORT).show();
                 }
+                submitLeadButton.setClickable(true);
             }
         };
     }
@@ -341,6 +336,7 @@ public class NewLead extends Fragment {
                 }else{
                     Toast.makeText(mContext, "Server error. Please contact admin.", Toast.LENGTH_SHORT).show();
                 }
+                submitLeadButton.setClickable(true);
             }
         };
     }
